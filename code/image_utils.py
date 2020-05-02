@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 from numpy import ma
 
-import geometry_utils
+import code.geometry_utils as geometry_utils
 
 SUPPORTED_IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".bmp", ".tiff", ".tif"]
 

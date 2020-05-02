@@ -7,9 +7,9 @@ import tkinter as tk
 from tkinter import filedialog, ttk
 import typing as tp
 
-import file_handling
-import scoring
-import str_utils
+import code.file_handling as file_handling
+import code.scoring as scoring
+import code.str_utils as str_utils
 
 YPADDING = 4
 XPADDING = 7

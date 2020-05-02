@@ -7,8 +7,8 @@ import typing as tp
 import cv2
 import numpy as np
 
-import list_utils
-import math_utils
+import code.list_utils as list_utils
+import code.math_utils as math_utils
 
 
 class Point:

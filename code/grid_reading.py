@@ -10,11 +10,11 @@ import cv2
 import numpy as np
 from numpy import ma
 
-import alphabet
-import geometry_utils
-import grid_info
-import image_utils
-import list_utils
+import code.alphabet as alphabet
+import code.geometry_utils as geometry_utils
+import code.grid_info as grid_info
+import code.image_utils as image_utils
+import code.list_utils as list_utils
 """ This is what determines the circle size of the grid cell mask. If it is 0,
 the circle touches all edges of the grid cell. If it is 0.5, the circle is 50%
 of the width and height of the cell (centered at the center of the cell.)

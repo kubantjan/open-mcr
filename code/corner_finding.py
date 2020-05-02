@@ -2,10 +2,10 @@ import typing
 
 import numpy as np
 
-import geometry_utils
-import image_utils
-import list_utils
-import math_utils
+import code.geometry_utils as geometry_utils
+import code.image_utils as image_utils
+import code.list_utils as list_utils
+import code.math_utils as math_utils
 import pathlib
 
 

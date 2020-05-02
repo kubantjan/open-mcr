@@ -1,8 +1,8 @@
 import enum
 import typing as tp
 
-import alphabet
-from geometry_utils import Orientation
+import code.alphabet as alphabet
+from code.geometry_utils import Orientation
 
 KEY_STUDENT_ID = "9999999999"
 GRID_HORIZONTAL_CELLS = 36

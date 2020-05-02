@@ -6,8 +6,8 @@ import pathlib
 import typing as tp
 from datetime import datetime
 
-import list_utils
-from grid_info import Field, RealOrVirtualField, VirtualField
+import code.list_utils as list_utils
+from code.grid_info import Field, RealOrVirtualField, VirtualField
 
 # If you change these, also update the manual!
 COLUMN_NAMES: tp.Dict[RealOrVirtualField, str] = {

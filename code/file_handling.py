@@ -3,7 +3,7 @@
 import pathlib
 import typing as tp
 
-from image_utils import SUPPORTED_IMAGE_EXTENSIONS
+from code.image_utils import SUPPORTED_IMAGE_EXTENSIONS
 
 
 def list_file_paths(directory: pathlib.Path) -> tp.List[pathlib.Path]:

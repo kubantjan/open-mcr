@@ -3,14 +3,14 @@ import time
 import typing as tp
 from datetime import datetime
 
-import corner_finding
-import data_exporting
-import file_handling
-import grid_info as grid_i
-import grid_reading as grid_r
-import image_utils
-import scoring
-import user_interface
+import code.corner_finding as corner_finding
+import code.data_exporting as data_exporting
+import code.file_handling as file_handling
+import code.grid_info as grid_i
+import code.grid_reading as grid_r
+import code.image_utils as image_utils
+import code.scoring as scoring
+import code.user_interface as user_interface
 
 user_input = user_interface.MainWindow()
 input_folder = user_input.input_folder
@@ -23,7 +23,10 @@ keys_file = user_input.keys_file
 arrangement_file = user_input.arrangement_map
 sort_results = user_input.sort_results
 debug_mode_on = user_input.debug_mode
-form_variant = grid_i.form_150q if user_input.form_variant == user_interface.FormVariantSelection.VARIANT_150_Q else grid_i.form_75q
+form_variant = (
+    grid_i.form_150q if user_input.form_variant == user_interface.FormVariantSelection.VARIANT_150_Q
+    else grid_i.form_75q
+)
 
 answers_results = data_exporting.OutputSheet([x for x in grid_i.Field],
                                              form_variant.num_questions)
@@ -35,7 +38,7 @@ progress = user_input.create_and_pack_progress(maximum=len(image_paths))
 files_timestamp = datetime.now().replace(microsecond=0)
 
 debug_dir = output_folder / (
-    data_exporting.format_timestamp_for_file(files_timestamp) + "__debug")
+        data_exporting.format_timestamp_for_file(files_timestamp) + "__debug")
 if debug_mode_on:
     data_exporting.make_dir_if_not_exists(debug_dir)
 
@@ -136,9 +139,9 @@ try:
     if keys_file:
         keys_results.add_file(keys_file)
 
-    if (keys_results.row_count == 0):
+    if keys_results.row_count == 0:
         success_string += "No exam keys were found, so no scoring was performed."
-    elif (arrangement_file and keys_results.row_count == 1):
+    elif arrangement_file and keys_results.row_count == 1:
         answers_results.reorder(arrangement_file)
         keys_results.data[1][keys_results.field_columns.index(
             grid_i.Field.TEST_FORM_CODE)] = ""
@@ -164,7 +167,7 @@ try:
                     sort_results,
                     timestamp=files_timestamp)
         success_string += "✔️ Scored results processed and saved."
-    elif (arrangement_file):
+    elif arrangement_file:
         success_string += "❌ Arrangement file and keys were ignored because more than one key was found."
     else:
         keys_results.save(output_folder,
